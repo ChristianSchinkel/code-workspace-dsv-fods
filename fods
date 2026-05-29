@@ -1,10 +1,11 @@
-"""Main entry point for the FODS app."""
-from fods_app.app import app
+#!/usr/bin/env python
+"""Startup script for the FODS app."""
+import fods_app
 
 
 def main():
     """Main function to run the FODS app."""
-    app()
+    fods_app.app()
 
 
 if __name__ == "__main__":
