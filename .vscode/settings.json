@@ -1,9 +1,12 @@
 {
-    "python-envs.pythonProjects": [
-        {
-            "path": ".",
-            "envManager": "ms-python.python:conda",
-            "packageManager": "ms-python.python:conda"
-        }
-    ]
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda",
+    "mypy-type-checker.importStrategy": "fromEnvironment",
+    "pylint.importStrategy": "fromEnvironment",
+    "isort.importStrategy": "fromEnvironment",
+    "flake8.args": [
+        "--max-line-length=88",
+    ],
+    "flake8.importStrategy": "useBundled",
+    "python.defaultInterpreterPath": "/Users/christian/miniconda3/envs/dsv-env/bin/python"
 }
