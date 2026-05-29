@@ -11,13 +11,14 @@ COPY environment.yml .
 RUN conda env create -f environment.yml
 
 # Make RUN commands use the new environment
-SHELL ["conda", "run", "-n", "fods-env", "/bin/bash", "-c"]
+SHELL ["conda", "run", "-n", "dsv-fods-env", "/bin/bash", "-c"]
 
 # Expose the port the app runs on
 EXPOSE 8888
 
-Create a directory for the notebook
+# Create the directory that Jupyter will use (absolute path)
 RUN mkdir -p /data/notebooks
+VOLUME /data/notebooks
 
-# Set the default command to launch Jupyter Notebook
-ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "fods-env", "jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--notebook-dir=/data/notebooks"]
+# Start Jupyter Notebook with the environment
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "dsv-fods-env", "jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--notebook-dir=/data/notebooks"]
