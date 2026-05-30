@@ -8,5 +8,12 @@
         "--max-line-length=88",
     ],
     "flake8.importStrategy": "useBundled",
-    "python.defaultInterpreterPath": "/Users/christian/miniconda3/envs/dsv-env/bin/python"
+    "python.defaultInterpreterPath": "/Users/christian/miniconda3/envs/dsv-env/bin/python",
+    "python-envs.pythonProjects": [
+        {
+            "path": ".",
+            "envManager": "ms-python.python:conda",
+            "packageManager": "ms-python.python:conda"
+        }
+    ]
 }
