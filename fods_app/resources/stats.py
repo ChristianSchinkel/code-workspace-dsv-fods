@@ -1,6 +1,6 @@
 """Statistical functions for data analysis."""
 
-import numpy as np
+# import numpy as np
 import pandas as pd
 
 
@@ -68,7 +68,8 @@ def summarize(_df, group_by, value_col, agg="mean", sort=True):
         group_by (str): The column name to group by.
         value_col (str): The column name to aggregate.
         agg (str, optional): The aggregation function to use (default is "mean").
-        sort (bool, optional): Whether to sort the results by the aggregated values (default is True).
+        sort (bool, optional): Whether to sort the results by the aggregated values
+        (default is True).
     Returns:
         pd.DataFrame: A summarized DataFrame with the aggregated values.
     """
@@ -80,15 +81,18 @@ def summarize(_df, group_by, value_col, agg="mean", sort=True):
 
 # Identify Outliers in the Dataset
 def above_percentile(_df, group_by, value_col, q=0.9) -> pd.DataFrame:
-    """Identify rows in a DataFrame where the value in a specified column is above a certain percentile.
+    """Identify rows in a DataFrame where the value in a specified column is
+    above a certain percentile.
 
     Args:
         _df (pd.DataFrame): The DataFrame to analyze.
         group_by (str): The column name to group by.
         value_col (str): The column name to evaluate for outliers.
-        q (float, optional): The percentile threshold to use for identifying outliers (default is 0.9).
+        q (float, optional): The percentile threshold to use for identifying outliers
+        (default is 0.9).
     Returns:
-        pd.DataFrame: A DataFrame containing rows where the value in the specified column is above the given percentile.
+        pd.DataFrame: A DataFrame containing rows where the value in the
+        specified column is above the given percentile.
     """
     results = summarize(_df, group_by, value_col, agg="mean", sort=False)
     threshold = results.quantile(q)
